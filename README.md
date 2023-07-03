@@ -25,7 +25,7 @@ lua script에 작성한 로직을 실행하면 해당 연산이 redis 서버에�
 
 ```lua
 local key = KEYS[1]
-local cur = tonumber(redis.call("GET", key) or "0")
+local cur = tonumber(redis.call("GET", key) or "-1")
 
 if cur > 0 then
   return redis.call("INCRBY", key, -1)
